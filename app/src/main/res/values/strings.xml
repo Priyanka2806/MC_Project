@@ -25,4 +25,6 @@
     <string name="title_activity_navigation">NavigationActivity</string>
     <string name="title_activity_rent_post">RentPostActivity</string>
     <string name="title_activity_maps">Map</string>
+
+    <string name="google_maps_key">AIzaSyBSFJKfvm-hc147RFBcqVnJLY91I347aoQ</string>
 </resources>

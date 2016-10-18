@@ -16,10 +16,14 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <!--Google MAP API key-->
-
     <meta-data
         android:name="com.google.android.maps.v2.API_KEY"
         android:value="AIzaSyBSFJKfvm-hc147RFBcqVnJLY91I347aoQ" />
+
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" >
+    </uses-feature>
 
     <application
         android:allowBackup="true"
@@ -36,14 +40,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".NavigationActivity"
-            android:label="@string/title_activity_navigation" />
+
         <activity
             android:name=".RentPostActivity"
             android:label="@string/title_activity_rent_post" />
         <activity android:name=".PostPropertyActivity" />
         <activity android:name=".RentPropertyActivity" />
+
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
