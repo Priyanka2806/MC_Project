@@ -52,8 +52,7 @@ public class ERLoginActivity extends AppCompatActivity {
 
         loginButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-
-                Intent intent = new Intent(getApplicationContext(), MapsActivity.class);
+                Intent intent = new Intent(getApplicationContext(), PostPropertyActivity.class);
                 startActivity(intent);
 
 
