@@ -27,7 +27,7 @@
 
     <uses-feature
         android:glEsVersion="0x00020000"
-        android:required="true"></uses-feature>
+        android:required="true" />
 
     <application
         android:allowBackup="true"
@@ -76,8 +76,10 @@
                 android:resource="@xml/file_paths" />
         </provider>
 
-        <activity android:name=".LookingForHouseActivity"></activity>
-
+        <activity android:name=".LookingForHouseActivity" />
+        <activity
+            android:name=".MapsRentActivity"
+            android:label="@string/title_activity_maps_rent"></activity>
     </application>
 
 </manifest>

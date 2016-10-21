@@ -39,7 +39,7 @@ public class PostPropertyActivity extends AppCompatActivity {
 
     private Button mShowMapButton;
     private EditText mLocationViewET;
-    String mCurrentPhotoPath;
+    private String mCurrentPhotoPath;
     private ImageView imgCamera;
     //private ImageView imgVideo;
     private ImageView imgGallery;
@@ -55,18 +55,13 @@ public class PostPropertyActivity extends AppCompatActivity {
     // private Place sendPlace = null;
     private LatLng lat_lng=null;
 
-    //Code for Rent Property--------------------------------------------
-    LatLng lajpat = new LatLng(28.5677, 77.2433);
-    LatLng gurgaon = new LatLng(28.4595, 77.0266);
-    LatLng ludhiana = new LatLng(30.9010, 75.8573);
-    ArrayList<LatLng> sentLatArray = new ArrayList<>();
-    //--------------------------------------------------------------------
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_post_property);
+
+        //--------------------------------------------CAMERA---------------------------------------
 
         imgCamera = (ImageView) findViewById(R.id.camera);
         imgCamera.setOnClickListener(new View.OnClickListener() {
@@ -107,15 +102,7 @@ public class PostPropertyActivity extends AppCompatActivity {
             }
         });
 
-
-        //takePhotoButton = (Button) findViewById(R.id.photoButton);
-        //takePhotoButton.setOnClickListener(new View.OnClickListener() {
-        //   public void onClick(View v) {
-        //       Intent intent = new Intent(getApplicationContext(), TakePhotosActivity.class);
-        //      startActivity(intent);
-        // }
-        // });
-
+        //------------------------------DROPDOWN LISTS-----------------------------------
         //Dropdown List for House Type
         spinner1 = (Spinner) findViewById(R.id.spinner1);
         spinner1.setOnItemSelectedListener(new CustomOnItemSelectedListener());
@@ -134,26 +121,16 @@ public class PostPropertyActivity extends AppCompatActivity {
         // find the radio button by returned id
         radioAvailabilityButton = (RadioButton) findViewById(selectedId);
 
-        //Code for Rent Property-----------------------------------------
-        sentLatArray.add(lajpat);
-        sentLatArray.add(gurgaon);
-        sentLatArray.add(ludhiana);
-        //----------------------------------------------------------------
 
         mShowMapButton=(Button)findViewById(R.id.showMapBtn);
         mLocationViewET=(EditText)findViewById(R.id.locationView);
         mShowMapButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), MapsActivity.class);
-//                Bundle args_latlng = new Bundle();
-//
-//                args_latlng.putParcelable("LATLNG",lat_lng);
-//                intent.putExtra("BUNDLE",args_latlng);
-
-                //Code for Rent Property------------------------------------------------
-                intent.putParcelableArrayListExtra("LATLNGLIST", sentLatArray);
-                //-----------------------------------------------------------------------
-
+                Bundle bundle_latlng = new Bundle();
+                bundle_latlng.putParcelable("LATLNG",lat_lng);
+                intent.putExtra("BUNDLE",bundle_latlng);
+                //intent.putExtra("call_from","PostPropertyActivity");
                 startActivity(intent);
             }
         });
@@ -163,8 +140,6 @@ public class PostPropertyActivity extends AppCompatActivity {
                 findPlace(v);
             }
         });
-
-
     }
 
     //https://www.studytutorial.in/android-google-places-api-tutorial-to-search-google-places
@@ -195,7 +170,6 @@ public class PostPropertyActivity extends AppCompatActivity {
                 lat_lng=temp_latlng;
             } else if (resultCode == PlaceAutocomplete.RESULT_ERROR) {
                 Status status = PlaceAutocomplete.getStatus(this, data);
-                // TODO: Handle the error.
                 Log.e("Tag", status.getStatusMessage());
 
             } else if (resultCode == RESULT_CANCELED) {
@@ -215,7 +189,7 @@ public class PostPropertyActivity extends AppCompatActivity {
             String picturePath = cursor.getString(columnIndex);
             cursor.close();
 
-            Toast.makeText(getApplicationContext(), "Selected IMage Path -" + picturePath, Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Selected Image Path -" + picturePath, Toast.LENGTH_LONG).show();
 
         }
     }

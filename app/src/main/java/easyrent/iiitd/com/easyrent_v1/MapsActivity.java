@@ -15,8 +15,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import java.util.ArrayList;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
-    ArrayList<LatLng> receivedLatArray = new ArrayList<LatLng>();
-    private String MAPS_TAG="MApsActivity";
+
     private GoogleMap mMap;
     private LatLng received_latlng=null;
 
@@ -31,57 +30,27 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     }
 
 
-    /**
-     * Manipulates the map once available.
-     * This callback is triggered when the map is ready to be used.
-     * This is where we can add markers or lines, add listeners or move the camera. In this case,
-     * we just add a marker near Sydney, Australia.
-     * If Google Play services is not installed on the device, the user will be prompted to install
-     * it inside the SupportMapFragment. This method will only be triggered once the user has
-     * installed Google Play services and returned to the app.
-     */
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-
-        // Add a marker in Sydney and move the camera
+        // Add a marker and move the camera
         //LatLng sydney = new LatLng(-34, 151);
 
+        //Intent from PostPropertyActivity
 
-//        Bundle bundle = getIntent().getParcelableExtra("BUNDLE");
-//        received_latlng = bundle.getParcelable("LAT_LNG");
-//        if(received_latlng!=null)
-//        {
-//            mMap.addMarker(new MarkerOptions().position(received_latlng).title("Your location!"));
-//            mMap.moveCamera(CameraUpdateFactory.newLatLng(received_latlng));
-//        }
-//        else
-//        {
-//            Toast.makeText(getApplicationContext(), "Empty lat long intent :(", Toast.LENGTH_LONG).show();
-//        }
-
-
-        //Code for Rent Property Map------------------------------------------------
-        receivedLatArray = getIntent().getParcelableArrayListExtra("LATLNGLIST");
-        // = bundle_list.getParcelable("LAT_LNG");
-        if(receivedLatArray.isEmpty())
+        Bundle bundle = getIntent().getParcelableExtra("BUNDLE");
+        received_latlng = bundle.getParcelable("LATLNG");
+        if(received_latlng!=null)
         {
-            Log.d("MAPS_TAG","Empty lat long list");
-            Toast.makeText(getApplicationContext(), "Empty lat long list :(", Toast.LENGTH_LONG).show();
+            mMap.addMarker(new MarkerOptions().position(received_latlng).title("Your location!"));
+            mMap.moveCamera(CameraUpdateFactory.newLatLng(received_latlng));
         }
         else
         {
-//            Bundle bundle_BuyerMapList = getIntent().getParcelableExtra("BUNDLE_LATLNGLIST");
-//            receivedLatArray = bundle_BuyerMapList.getParcelableArrayList("LAT_LNG_LIST");
-            int size=receivedLatArray.size();
-
-            for(int i = 0 ; i < size ; i++ )
-            {
-                LatLng temp_ll = receivedLatArray.get(i);
-                mMap.addMarker(new MarkerOptions().position(temp_ll).title("Location"));
-                mMap.moveCamera(CameraUpdateFactory.newLatLng(temp_ll));
-            }
+            Toast.makeText(getApplicationContext(), "Empty lat long intent :(", Toast.LENGTH_LONG).show();
         }
-        //---------------------------------------------------------------------------
+
+
+
     }
 }

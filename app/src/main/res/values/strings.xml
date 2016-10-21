@@ -53,4 +53,5 @@
 
     <string name="radio_immediately">Immediately</string>
     <string name="radio_from">From:</string>
+    <string name="title_activity_maps_rent">Map</string>
 </resources>
