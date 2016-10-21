@@ -9,13 +9,13 @@
     android:paddingTop="12dp"
     tools:context="easyrent.iiitd.com.easyrent_v1.PostPropertyActivity">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Enter Details - "
-        android:id="@+id/textView"
-        android:gravity="center"
-        android:layout_above="@+id/tableLayout" />
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/er_logo"
+        android:layout_gravity="center_horizontal"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/logo"/>
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -48,6 +48,19 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/locationView"/>
         </TableRow>
+        <TableRow>
+
+
+            <Button android:text="Show map"
+                android:id="@+id/showMapBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/buttonLayout"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_column="2"
+                />
+
+        </TableRow>
 
         <TableRow>
             <TextView android:text="Address: "
@@ -61,17 +74,6 @@
                 android:id="@+id/addressView"/>
         </TableRow>
 
-        <TableRow>
-            <TextView android:text="House Size: "
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_column="1"/>
-
-            <EditText android:width="200px"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/houseSizeView"/>
-        </TableRow>
 
         <TableRow>
             <TextView android:text="Furnished: "
@@ -114,26 +116,36 @@
                 android:layout_height="wrap_content"
                 android:layout_column="1"/>
 
-            <RadioGroup
-                android:id="@+id/radioAvailability"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
 
-                <RadioButton
-                    android:id="@+id/radioImmediately"
+                <RadioGroup
+                    android:id="@+id/radioAvailability"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/radio_immediately"
-                    android:checked="true" />
+                    android:orientation="vertical">
 
-                <RadioButton
-                    android:id="@+id/radioFrom"
+                    <RadioButton
+                        android:id="@+id/radioImmediately"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/radio_immediately"
+                        />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                    <RadioButton
+                        android:id="@+id/radioFrom"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/radio_from" />
+                <EditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/radio_from" />
+                    android:id="@+id/from"/>
+            </LinearLayout>
 
-            </RadioGroup>
+                </RadioGroup>
 
         </TableRow>
 
@@ -164,60 +176,56 @@
         </TableRow>
     </TableLayout>
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/tableLayout"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:id="@+id/buttonLayout"
-        android:layout_centerHorizontal="true"
-        android:gravity="center"
-        android:weightSum="1">
+        >
         <TextView android:text="Photos: "
             android:layout_width="wrap_content"
-            android:layout_height="52dp"
+            android:layout_height="wrap_content"
             android:layout_weight="0.70"
             android:layout_gravity="center_vertical" />
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="horizontal">
             <ImageView
                 android:layout_width="35dp"
                 android:layout_height="35dp"
                 android:src="@drawable/camera"
                 android:id="@+id/camera"
                 android:layout_gravity="center_horizontal" />
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:text="Take Photos"
-                android:id="@+id/photoButton"
-                style="?android:attr/buttonBarButtonStyle"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+
             <ImageView
                 android:layout_width="35dp"
                 android:layout_height="35dp"
                 android:src="@drawable/gallery_icon"
                 android:layout_gravity="center_horizontal"
                 android:id="@+id/gallery"/>
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:text="Open Gallery"
-                android:id="@+id/galleryButton"
-                style="?android:attr/buttonBarButtonStyle"/>
         </LinearLayout>
-        <Button android:text="Show map"
-            android:id="@+id/showMapBtn"
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_alignEnd="@+id/tableLayout"
+        android:layout_alignBottom="@+id/buttonLayout">
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:src="@drawable/next_arrow"
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/next"
+             />
+        <TextView android:text="Proceed "
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/buttonLayout"
+            android:id="@+id/proceedButton"
             />
     </LinearLayout>
 

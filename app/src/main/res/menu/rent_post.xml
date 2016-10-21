@@ -9,17 +9,18 @@
             android:title="My Profile" />
         <item
             android:id="@+id/propertiesView"
-            android:icon="@drawable/home_icon"
+            android:icon="@drawable/listed_proprties_icon"
             android:title="Listed Properties" />
         <item
             android:id="@+id/wishlistView"
-            android:icon="@drawable/home_icon"
+            android:icon="@drawable/wishlist_icon"
             android:title="Wishlist" />
     </group>
 
     <item
         android:id="@+id/action_settings"
         android:orderInCategory="100"
+        android:icon="@drawable/settings_icon"
 
         android:title="@string/action_settings" />
 </menu>

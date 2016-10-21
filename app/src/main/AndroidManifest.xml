@@ -77,9 +77,13 @@
         </provider>
 
         <activity android:name=".LookingForHouseActivity" />
+
         <activity
             android:name=".MapsRentActivity"
             android:label="@string/title_activity_maps_rent"></activity>
+
+        <activity android:name=".PostDoneActivity"></activity>
+
     </application>
 
 </manifest>

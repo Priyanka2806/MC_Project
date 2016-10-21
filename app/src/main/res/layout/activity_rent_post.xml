@@ -63,7 +63,8 @@
                 android:textColor="#fcf9f9" />
 
         </LinearLayout>
-    </FrameLayout>
+
+        </FrameLayout>
     </LinearLayout>
 
     <!-- The drawer is given a fixed width in dp and extends the full height of

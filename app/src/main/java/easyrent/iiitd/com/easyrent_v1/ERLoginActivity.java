@@ -68,6 +68,7 @@ public class ERLoginActivity extends AppCompatActivity {
                 }
                 else{
                     //Store these details in Database.
+                    Toast.makeText(getApplicationContext(), "Details entered to the database. Login to continue!!", Toast.LENGTH_LONG).show();
                 }
 
 

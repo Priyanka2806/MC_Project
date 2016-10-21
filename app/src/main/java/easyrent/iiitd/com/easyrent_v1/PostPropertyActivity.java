@@ -49,9 +49,10 @@ public class PostPropertyActivity extends AppCompatActivity {
     private Spinner spinner1;
     private Spinner spinner2;
     private Spinner spinner3;
+    private ImageView proceedButton;
     private RadioGroup radioAvailabilityGroup;
     private RadioButton radioAvailabilityButton;
-    private Button takePhotoButton;
+
     // private Place sendPlace = null;
     private LatLng lat_lng=null;
 
@@ -102,7 +103,10 @@ public class PostPropertyActivity extends AppCompatActivity {
             }
         });
 
-        //------------------------------DROPDOWN LISTS-----------------------------------
+
+        //-------------------------------------DROPDOWN LISTS------------------------------------//
+
+
         //Dropdown List for House Type
         spinner1 = (Spinner) findViewById(R.id.spinner1);
         spinner1.setOnItemSelectedListener(new CustomOnItemSelectedListener());
@@ -138,6 +142,15 @@ public class PostPropertyActivity extends AppCompatActivity {
         mLocationViewET.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 findPlace(v);
+            }
+        });
+
+        proceedButton = (ImageView)findViewById(R.id.next);
+        proceedButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+
+                Intent intent = new Intent(getApplicationContext(), PostDoneActivity.class);
+                startActivity(intent);
             }
         });
     }
