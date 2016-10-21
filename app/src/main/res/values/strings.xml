@@ -27,4 +27,30 @@
     <string name="title_activity_maps">Map</string>
 
     <string name="google_maps_key">AIzaSyBSFJKfvm-hc147RFBcqVnJLY91I347aoQ</string>
+
+    <string-array name="houseType_arrays">
+        <item>1-BHK</item>
+        <item>2-BHK</item>
+        <item>3-BHK</item>
+        <item>Villa</item>
+        <item>Studio Apartment</item>
+        <item>Others</item>
+    </string-array>
+
+    <string-array name="furnishedType_arrays">
+        <item>Fully</item>
+        <item>Semi</item>
+        <item>Non</item>
+    </string-array>
+
+    <string-array name="tenant_arrays">
+        <item>Family</item>
+        <item>Students</item>
+        <item>Bachelors (Boys)</item>
+        <item>Bachelors (Girls)</item>
+        <item>Others</item>
+    </string-array>
+
+    <string name="radio_immediately">Immediately</string>
+    <string name="radio_from">From:</string>
 </resources>

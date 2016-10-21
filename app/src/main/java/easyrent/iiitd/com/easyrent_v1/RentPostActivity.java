@@ -25,6 +25,7 @@ public class RentPostActivity extends AppCompatActivity{
     private NavigationView nvDrawer;
 
     private Button postPropertyButton;
+    private Button rentPropertyButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +46,14 @@ public class RentPostActivity extends AppCompatActivity{
         postPropertyButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), PostPropertyActivity.class);
+                startActivity(intent);
+
+            }
+        });
+        rentPropertyButton = (Button)findViewById(R.id.btn_rent);
+        rentPropertyButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), LookingForHouseActivity.class);
                 startActivity(intent);
 
             }

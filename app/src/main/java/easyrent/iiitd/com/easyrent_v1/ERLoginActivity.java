@@ -34,27 +34,18 @@ public class ERLoginActivity extends AppCompatActivity {
         newUsernameText = (EditText)findViewById(R.id.input_new_username);
 
 
-//        loginButton.setOnClickListener(new View.OnClickListener() {
-//            public void onClick(View v) {
-//                String emailId = emailText.getText().toString();
-//                String password = passwordText.getText().toString();
-//                if(emailId.equals("riya@gmail.com") && password.equals("riya123")){
-//                    Intent intent = new Intent(getApplicationContext(), RentPostActivity.class);
-//                    startActivity(intent);
-//                }
-//                else
-//                {
-//                    Toast.makeText(getApplicationContext(), "Invalid Credentials!!", Toast.LENGTH_LONG).show();
-//                }
-//
-//            }
-//        });
-
         loginButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), PostPropertyActivity.class);
-                startActivity(intent);
-
+                String emailId = emailText.getText().toString();
+                String password = passwordText.getText().toString();
+                if(emailId.equals("riya@gmail.com") && password.equals("riya123")){
+                    Intent intent = new Intent(getApplicationContext(), RentPostActivity.class);
+                    startActivity(intent);
+                }
+                else
+                {
+                    Toast.makeText(getApplicationContext(), "Invalid Credentials!!", Toast.LENGTH_LONG).show();
+                }
 
             }
         });
