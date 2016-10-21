@@ -25,6 +25,9 @@ import com.google.android.gms.common.GooglePlayServicesRepairableException;
 import com.google.android.gms.common.api.Status;
 import com.google.android.gms.location.places.Place;
 import com.google.android.gms.location.places.ui.PlaceAutocomplete;
+import com.google.android.gms.maps.model.LatLng;
+
+import java.util.ArrayList;
 
 import java.io.File;
 import java.io.IOException;
@@ -49,6 +52,16 @@ public class PostPropertyActivity extends AppCompatActivity {
     private RadioGroup radioAvailabilityGroup;
     private RadioButton radioAvailabilityButton;
     private Button takePhotoButton;
+    // private Place sendPlace = null;
+    private LatLng lat_lng=null;
+
+    //Code for Rent Property--------------------------------------------
+    LatLng lajpat = new LatLng(28.5677, 77.2433);
+    LatLng gurgaon = new LatLng(28.4595, 77.0266);
+    LatLng ludhiana = new LatLng(30.9010, 75.8573);
+    ArrayList<LatLng> sentLatArray = new ArrayList<>();
+    //--------------------------------------------------------------------
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -121,11 +134,26 @@ public class PostPropertyActivity extends AppCompatActivity {
         // find the radio button by returned id
         radioAvailabilityButton = (RadioButton) findViewById(selectedId);
 
+        //Code for Rent Property-----------------------------------------
+        sentLatArray.add(lajpat);
+        sentLatArray.add(gurgaon);
+        sentLatArray.add(ludhiana);
+        //----------------------------------------------------------------
+
         mShowMapButton=(Button)findViewById(R.id.showMapBtn);
         mLocationViewET=(EditText)findViewById(R.id.locationView);
         mShowMapButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), MapsActivity.class);
+//                Bundle args_latlng = new Bundle();
+//
+//                args_latlng.putParcelable("LATLNG",lat_lng);
+//                intent.putExtra("BUNDLE",args_latlng);
+
+                //Code for Rent Property------------------------------------------------
+                intent.putParcelableArrayListExtra("LATLNGLIST", sentLatArray);
+                //-----------------------------------------------------------------------
+
                 startActivity(intent);
             }
         });
@@ -139,15 +167,16 @@ public class PostPropertyActivity extends AppCompatActivity {
 
     }
 
+    //https://www.studytutorial.in/android-google-places-api-tutorial-to-search-google-places
     public void findPlace(View view) {
         try {
             Intent intent = new PlaceAutocomplete.IntentBuilder(PlaceAutocomplete.MODE_FULLSCREEN)
                             .build(this);
             startActivityForResult(intent, 1);
         } catch (GooglePlayServicesRepairableException e) {
-            // TODO: Handle the error.
+            Toast.makeText(getApplicationContext(), "Repairable exception!", Toast.LENGTH_LONG).show();
         } catch (GooglePlayServicesNotAvailableException e) {
-            // TODO: Handle the error.
+            Toast.makeText(getApplicationContext(), "Map service not available!", Toast.LENGTH_LONG).show();
         }
     }
 
@@ -156,14 +185,14 @@ public class PostPropertyActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == 1) {
             if (resultCode == RESULT_OK) {
-                // retrive the data by using getPlace() method.
+                // retrieve the data by using getPlace() method.
                 Place place = PlaceAutocomplete.getPlace(this, data);
                 Log.e("Tag", "Place: " + place.getAddress() + place.getPhoneNumber());
-
                 ((TextView) findViewById(R.id.locationView))
-                        .setText(place.getName()+",\n"+
-                                place.getAddress() +"\n" + place.getPhoneNumber());
-
+                        .setText(place.getName());
+                //  place.getAddress() +"\n" + place.getPhoneNumber()
+                LatLng temp_latlng=place.getLatLng();
+                lat_lng=temp_latlng;
             } else if (resultCode == PlaceAutocomplete.RESULT_ERROR) {
                 Status status = PlaceAutocomplete.getStatus(this, data);
                 // TODO: Handle the error.
