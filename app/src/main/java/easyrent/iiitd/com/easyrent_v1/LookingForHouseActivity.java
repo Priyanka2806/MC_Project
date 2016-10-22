@@ -23,7 +23,7 @@ public class LookingForHouseActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_looking_for_house);
-
+        getActionBar().setTitle("House Search");
         mMapViewButton = (Button) findViewById(R.id.mapViewBtn);
         //Hardcoded places added to array list for demo----------------------------------------
         sentLatArray.add(lajpat);

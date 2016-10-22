@@ -67,7 +67,7 @@ public class PostPropertyActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_post_property);
-
+        getActionBar().setTitle("Owner Registration");
         //--------------------------------------------CAMERA---------------------------------------
 
         imgCamera = (ImageView) findViewById(R.id.camera);

@@ -44,6 +44,7 @@ public class MapsRentActivity extends FragmentActivity implements OnMapReadyCall
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
         receivedLatArray = getIntent().getParcelableArrayListExtra("LAT_LIST");
+        getActionBar().setTitle("Map View");
         if(receivedLatArray.isEmpty())
         {
             Log.d("MAPS_TAG","Empty lat long list");
