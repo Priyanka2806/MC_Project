@@ -39,7 +39,7 @@ public class PostPropertyActivity extends AppCompatActivity {
 
     private Button mShowMapButton;
     private EditText mLocationViewET;
-    private String mCurrentPhotoPath;
+    private String mCurrentPhotoPath="";
     private ImageView imgCamera;
     //private ImageView imgVideo;
     private ImageView imgGallery;
@@ -52,6 +52,12 @@ public class PostPropertyActivity extends AppCompatActivity {
     private ImageView proceedButton;
     private RadioGroup radioAvailabilityGroup;
     private RadioButton radioAvailabilityButton;
+
+    //To get details
+    private EditText locationText;
+    private Spinner houseType;
+    private EditText addressText;
+
 
     // private Place sendPlace = null;
     private LatLng lat_lng=null;
@@ -149,8 +155,31 @@ public class PostPropertyActivity extends AppCompatActivity {
         proceedButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
-                Intent intent = new Intent(getApplicationContext(), PostDoneActivity.class);
-                startActivity(intent);
+                String house = "";
+                String location = "";
+                String address = "";
+                //String availableFrom = "";
+                String photoURL = "";
+
+                houseType = (Spinner)findViewById(R.id.spinner1);
+                locationText = (EditText)findViewById(R.id.locationView);
+                addressText = (EditText)findViewById(R.id.addressView);
+
+                house = houseType.toString();
+                location = locationText.getText().toString();
+                address = addressText.getText().toString();
+                photoURL = mCurrentPhotoPath;
+
+                if(house.equals("") || location.equals("") || address.equals("") || photoURL.equals("")) {
+                    Toast.makeText(getApplicationContext(), "Cannot proceed without entering the necessary details!!", Toast.LENGTH_LONG).show();
+                }
+                else{
+                    //Store these details in Database.
+                    Toast.makeText(getApplicationContext(), "Details entered to the database.", Toast.LENGTH_LONG).show();
+
+                    Intent intent = new Intent(getApplicationContext(), PostDoneActivity.class);
+                    startActivity(intent);
+                }
             }
         });
     }
@@ -199,10 +228,10 @@ public class PostPropertyActivity extends AppCompatActivity {
             cursor.moveToFirst();
 
             int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
-            String picturePath = cursor.getString(columnIndex);
+            mCurrentPhotoPath = cursor.getString(columnIndex);
             cursor.close();
 
-            Toast.makeText(getApplicationContext(), "Selected Image Path -" + picturePath, Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Selected Image Path -" + mCurrentPhotoPath, Toast.LENGTH_LONG).show();
 
         }
     }
@@ -230,6 +259,7 @@ public class PostPropertyActivity extends AppCompatActivity {
 
         // Save a file: path for use with ACTION_VIEW intents
         mCurrentPhotoPath = "file:" + image.getAbsolutePath();
+        Toast.makeText(getApplicationContext(), "Selected Image Path -" + mCurrentPhotoPath, Toast.LENGTH_LONG).show();
         return image;
     }
 

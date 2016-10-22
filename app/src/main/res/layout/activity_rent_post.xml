@@ -31,14 +31,16 @@
                 android:paddingRight="24dp"
                 android:layout_gravity="center">
 
-            <ImageView android:src="@drawable/er_logo"
-                android:layout_width="wrap_content"
-                android:layout_height="72dp"
-                android:layout_marginBottom="24dp"
-                android:layout_gravity="center_horizontal"
-                android:contentDescription="@string/logo"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="WELCOME RIYA"
+                    android:id="@+id/textView"
+                    android:layout_gravity="center"
+                    />
 
-            <android.support.v7.widget.AppCompatButton
+                <android.support.v7.widget.AppCompatButton
                 android:id="@+id/btn_rent"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
@@ -63,6 +65,13 @@
                 android:textColor="#fcf9f9" />
 
         </LinearLayout>
+
+            <ImageView android:src="@drawable/er_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="72dp"
+            android:layout_marginBottom="24dp"
+            android:layout_gravity="center_horizontal|top"
+            android:contentDescription="@string/logo"/>
 
         </FrameLayout>
     </LinearLayout>

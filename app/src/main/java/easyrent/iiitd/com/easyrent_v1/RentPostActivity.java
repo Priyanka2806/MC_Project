@@ -34,7 +34,8 @@ public class RentPostActivity extends AppCompatActivity{
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        toolbar.setNavigationIcon(R.drawable.nav_bar_icon);
+        toolbar.setNavigationIcon(R.drawable.ic_drawer);
+
 
         mDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);
 
