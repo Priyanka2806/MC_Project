@@ -40,14 +40,16 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         Bundle bundle = getIntent().getParcelableExtra("BUNDLE");
         received_latlng = bundle.getParcelable("LATLNG");
+
         if(received_latlng!=null)
         {
-            mMap.addMarker(new MarkerOptions().position(received_latlng).title("Your location!"));
+            mMap.animateCamera( CameraUpdateFactory.zoomTo( 15.0f ) );
+            mMap.addMarker(new MarkerOptions().position(received_latlng).title("Your location"));
             mMap.moveCamera(CameraUpdateFactory.newLatLng(received_latlng));
         }
         else
         {
-            Toast.makeText(getApplicationContext(), "Empty lat long intent :(", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Enter your location!", Toast.LENGTH_LONG).show();
         }
 
 

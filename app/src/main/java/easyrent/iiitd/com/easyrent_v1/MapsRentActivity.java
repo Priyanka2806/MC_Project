@@ -51,12 +51,13 @@ public class MapsRentActivity extends FragmentActivity implements OnMapReadyCall
         }
         else
         {
+            mMap.animateCamera( CameraUpdateFactory.zoomTo( 15.0f ) );
             int size=receivedLatArray.size();
 
             for(int i = 0 ; i < size ; i++ )
             {
                 LatLng temp_ll = receivedLatArray.get(i);
-                mMap.addMarker(new MarkerOptions().position(temp_ll).title("Location"));
+                mMap.addMarker(new MarkerOptions().position(temp_ll).title("15k"));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(temp_ll));
             }
         }

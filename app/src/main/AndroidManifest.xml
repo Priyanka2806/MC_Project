@@ -31,7 +31,7 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/er_logo"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
@@ -47,7 +47,9 @@
         <activity
             android:name=".RentPostActivity"
             android:label="@string/title_activity_rent_post" />
-        <activity android:name=".PostPropertyActivity" />
+        <activity
+            android:name=".PostPropertyActivity"
+            android:label="@string/title_activity_post_property"/>
         <activity android:name=".RentPropertyActivity" />
 
         <!--
@@ -76,13 +78,15 @@
                 android:resource="@xml/file_paths" />
         </provider>
 
-        <activity android:name=".LookingForHouseActivity" />
+        <activity android:name=".LookingForHouseActivity"
+            android:label="@string/title_activity_lookingForHouse"/>
 
         <activity
             android:name=".MapsRentActivity"
-            android:label="@string/title_activity_maps_rent"></activity>
+            android:label="@string/title_activity_maps_rent"/>
 
-        <activity android:name=".PostDoneActivity"></activity>
+        <activity android:name=".PostDoneActivity"
+            android:label="@string/title_activity_post_done"/>
 
     </application>
 

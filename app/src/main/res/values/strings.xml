@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">EasyRent_v1</string>
+    <string name="app_name">EasyRent</string>
     <string name="logo">EasyRent</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
@@ -10,7 +10,10 @@
     <string name="signup">Sign Up!</string>
     <string name="rent_property">Rent Property</string>
     <string name="post_property">Post Property</string>
-    <string name="title_activity_profile_page">ProfilePageActivity</string>
+    <string name="title_activity_profile_page">User Profile</string>
+    <string name="title_activity_post_property">Owner Registration</string>
+    <string name="title_activity_lookingForHouse">House search</string>
+    <string name="title_activity_post_done">Successful Registration</string>
 
     <string name="title_section1">Section 1</string>
     <string name="title_section2">Section 2</string>
