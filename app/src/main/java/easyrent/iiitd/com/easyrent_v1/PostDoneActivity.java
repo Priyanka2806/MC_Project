@@ -13,7 +13,6 @@ public class PostDoneActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_post_done);
 
-        getActionBar().setTitle("Successful Registration");
 
 
     }
