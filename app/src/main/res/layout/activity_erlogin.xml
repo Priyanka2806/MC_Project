@@ -12,11 +12,12 @@
 
     <LinearLayout
         android:orientation="vertical"
-        android:layout_width="match_parent"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:paddingTop="56dp"
         android:paddingLeft="24dp"
-        android:paddingRight="24dp">
+        android:paddingRight="24dp"
+        android:background="@drawable/er_background">
 
         <ImageView android:src="@drawable/er_logo"
             android:layout_width="wrap_content"
@@ -25,9 +26,21 @@
             android:layout_gravity="center_horizontal"
             android:contentDescription="@string/logo"/>
 
+
+            <android.support.v7.widget.AppCompatButton
+            android:id="@+id/sign_in_button"
+            android:layout_width="wrap_content"
+            android:text="Google sign in"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+                android:background="@drawable/btn_shape"
+                android:textAlignment="center"
+                android:textColor="#fcf9f9"
+            />
+
         <!-- Email Label -->
         <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp">
@@ -40,7 +53,7 @@
 
         <!-- Password Label -->
         <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp">
@@ -50,6 +63,16 @@
                 android:inputType="textPassword"
                 android:hint="@string/password"/>
         </android.support.design.widget.TextInputLayout>
+
+        <Switch
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Keep me signed in."
+            android:id="@+id/switch1"
+            android:checked="true"
+            android:layout_gravity="center_horizontal"
+            android:paddingTop="10dp"
+            android:paddingBottom="5dp"/>
 
         <android.support.v7.widget.AppCompatButton
             android:id="@+id/btn_login"
@@ -71,9 +94,9 @@
             android:gravity="center"
             android:textSize="16sp"/>
 
-        <!-- Sign Up Email Label -->
+        <!-- Sign Up Username Label -->
         <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp">
@@ -83,9 +106,9 @@
                 android:hint="@string/username" />
         </android.support.design.widget.TextInputLayout>
 
-        <!-- Sign up Password Label -->
+        <!-- Sign up Contact Label -->
         <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp">
@@ -97,7 +120,7 @@
 
         <!-- Sign Up Email Label -->
         <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp">
@@ -110,7 +133,7 @@
 
         <!-- Sign up Password Label -->
         <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp">
@@ -132,6 +155,14 @@
             android:background="@drawable/btn_shape"
             android:textAlignment="center"
             android:textColor="#fcf9f9" />
+
+        <TextView android:id="@+id/link_login"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:text="Already a member? Login"
+        android:gravity="center"
+        android:textSize="16dip"/>
 
     </LinearLayout>
 </ScrollView>

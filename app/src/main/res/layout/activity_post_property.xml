@@ -30,7 +30,7 @@
                 android:layout_column="1"/>
 
             <Spinner
-                android:id="@+id/spinner1"
+                android:id="@+id/spinner_houseType_post"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:entries="@array/houseType_arrays"
@@ -83,7 +83,7 @@
                 android:layout_column="1"/>
 
             <Spinner
-                android:id="@+id/spinner2"
+                android:id="@+id/spinner_furnished_post"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:entries="@array/furnishedType_arrays" />
@@ -135,16 +135,19 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
-                    <RadioButton
-                        android:id="@+id/radioFrom"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/radio_from" />
-                <EditText
-                    android:layout_width="55dp"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/from"/>
-            </LinearLayout>
+                        <RadioButton
+                            android:id="@+id/radioFrom"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/radio_from" />
+                        <EditText
+                            android:layout_width="55dp"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/from"
+                            android:cursorVisible="false"
+                            android:inputType="none"
+                            android:onClick="showDatePickerDialog"/>
+                    </LinearLayout>
 
                 </RadioGroup>
 
@@ -157,7 +160,7 @@
                 android:layout_column="1"/>
 
             <Spinner
-                android:id="@+id/spinner3"
+                android:id="@+id/spinner_tenantPref_post"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:entries="@array/tenant_arrays"

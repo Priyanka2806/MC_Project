@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "797041995195",
+    "project_id": "firebase-easy-rent"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:797041995195:android:b8a1ff511741ee48",
+        "android_client_info": {
+          "package_name": "easyrent.iiitd.com.easyrent_v1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "797041995195-6ev5r64r73ag44tgklsr67p7hbfdpgla.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "easyrent.iiitd.com.easyrent_v1",
+            "certificate_hash": "619DF82BE09F2B3417AEA906F3B96FA43DC85F0F"
+          }
+        },
+        {
+          "client_id": "797041995195-rjbotenrsdg6o36snp55sgfl5prrgs4p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB_ZxHy6iNMCKTfQwDfWTke5yDMm21nqAg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

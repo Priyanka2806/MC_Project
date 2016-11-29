@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
+    tools:context="easyrent.iiitd.com.easyrent_v1.SearchProp">
+<AutoCompleteTextView
+    android:id="@+id/search_location_text"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
+    android:paddingTop="20dp"
+    android:ems="10"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:hint="enter nearby location">
+    <requestFocus/>
+</AutoCompleteTextView>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="?android:attr/borderlessButtonStyle"
+        android:textColor="#ff0000"
+        android:drawableLeft="@drawable/location_icon_contact"
+        android:text="use my location"/>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical"
+
+        android:paddingTop="40dp">
+        <Spinner
+            android:id="@+id/tenant_spinner"
+            android:layout_width="match_parent"
+            android:spinnerMode="dropdown"
+            android:background="@drawable/drop_down"
+            android:layout_height="wrap_content"
+            >
+
+            </Spinner>
+
+        <Spinner
+            android:id="@+id/booking_kind_spinner"
+            android:layout_width="match_parent"
+            android:spinnerMode="dropdown"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/drop_down"
+            android:layout_height="wrap_content">
+
+            </Spinner>
+
+    <Spinner
+        android:id="@+id/budget_spinner"
+        android:layout_width="match_parent"
+        android:spinnerMode="dropdown"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/drop_down"
+        android:layout_height="wrap_content">
+
+        </Spinner>
+
+
+    </LinearLayout>
+
+
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/search_btn"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="24dp"
+        android:padding="12dp"
+        android:text="Search"
+
+        android:layout_weight="0"
+        android:background="@drawable/btn_shape"
+        android:textAlignment="center"
+        android:textColor="#fcf9f9" />
+</LinearLayout>

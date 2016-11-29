@@ -9,11 +9,157 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="easyrent.iiitd.com.easyrent_v1.LookingForHouseActivity">
 
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/er_logo"
+        android:layout_gravity="center_horizontal"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/logo"/>
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Map View"
         android:id="@+id/mapViewBtn"
-        android:layout_centerVertical="true"
+        android:layout_below="@+id/et_lfh_search"
+        android:layout_toEndOf="@+id/textView_budget" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/et_lfh_search"
+        android:hint="Search by locality"
+        android:layout_below="@+id/logo"
         android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Move In Date"
+        android:id="@+id/textView2"
+        android:layout_alignBottom="@+id/editText_moveInDate"
+         />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Click to select date!"
+        android:id="@+id/editText_moveInDate"
+        android:cursorVisible="false"
+        android:inputType="none"
+        android:onClick="showDatePickerDialog"
+        android:layout_below="@+id/mapViewBtn"
+        android:layout_alignStart="@+id/radioGroupTenantType" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Tenant Type"
+        android:id="@+id/textView_tenantType"
+        android:layout_alignTop="@+id/radioGroupTenantType"
+        android:layout_alignParentStart="true" />
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/radioGroupTenantType"
+        android:layout_centerVertical="true"
+        android:layout_alignStart="@+id/logo">
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Girls"
+            android:id="@+id/radioButton_girls"
+            android:checked="false"
+             />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Boys"
+            android:id="@+id/radioButton_boys"
+            android:checked="false"
+            android:layout_below="@+id/radioButton_girls"
+            android:layout_alignStart="@+id/radioButton_girls" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Couple/Family"
+            android:id="@+id/radioButton_family"
+            android:layout_below="@+id/radioButton_boys"
+            android:layout_alignStart="@+id/radioButton_boys"
+            android:checked="false" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Others"
+            android:id="@+id/radioButton_others"
+            android:layout_below="@+id/radioButton_family"
+            android:layout_alignStart="@+id/radioButton_boys"
+            android:checked="false" />
+    </RadioGroup>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Budget"
+        android:id="@+id/textView_budget"
+        android:layout_alignTop="@+id/spinner_budget"
+        android:layout_alignParentStart="true" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinner_budget"
+        android:entries="@array/tenant_budget_array"
+        android:layout_below="@+id/spinner_houseType"
+        android:layout_alignStart="@+id/spinner_houseType" />
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="House Type"
+        android:id="@+id/textView_houseType"
+        android:layout_below="@+id/radioGroupTenantType"
+        android:layout_alignParentStart="true" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinner_houseType"
+        android:layout_alignTop="@+id/textView_houseType"
+        android:layout_alignStart="@+id/radioGroupTenantType"
+        android:entries="@array/houseType_arrays"/>
+
+
+
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="List Properties"
+        android:id="@+id/button_listProperties"
+        android:layout_below="@+id/et_lfh_search"
+        android:layout_toEndOf="@+id/mapViewBtn" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Flat Share"
+        android:id="@+id/checkBox_flatShare"
+        android:checked="false"
+        android:textSize="18dp"
+        android:layout_below="@+id/spinner_budget"
+        android:layout_alignParentStart="true" />
+
+
 </RelativeLayout>

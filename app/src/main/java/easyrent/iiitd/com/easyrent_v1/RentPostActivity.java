@@ -79,25 +79,31 @@ public class RentPostActivity extends AppCompatActivity{
                 case R.id.myProfileView:
                     fragmentClass = MyProfileFragment.class;
                     break;
-                case R.id.propertiesView:
-                    fragmentClass = ListedPropertiesFragment.class;
-                    break;
-                case R.id.wishlistView:
-                    fragmentClass = WishlistFragment.class;
+
+                case R.id.sharingView:
+                    fragmentClass = SharingActivity.class;
                     break;
                 default:
                     fragmentClass = MyProfileFragment.class;
             }
 
             try {
-                fragment = (Fragment) fragmentClass.newInstance();
+                //fragment = (Fragment) fragmentClass.newInstance();
+                if(fragmentClass == SharingActivity.class) {
+                    Intent intent = new Intent(getApplicationContext(), SharingActivity.class);
+                    startActivity(intent);
+                }
+                else {
+                    fragment = (Fragment) fragmentClass.newInstance();
+                    // Insert the fragment by replacing any existing fragment
+                    FragmentManager fragmentManager = getSupportFragmentManager();
+                    fragmentManager.beginTransaction().replace(R.id.container, fragment).commit();
+                }
+
             } catch (Exception e) {
                 e.printStackTrace();
             }
 
-            // Insert the fragment by replacing any existing fragment
-            FragmentManager fragmentManager = getSupportFragmentManager();
-            fragmentManager.beginTransaction().replace(R.id.container, fragment).commit();
 
             // Highlight the selected item has been done by NavigationView
             menuItem.setChecked(true);

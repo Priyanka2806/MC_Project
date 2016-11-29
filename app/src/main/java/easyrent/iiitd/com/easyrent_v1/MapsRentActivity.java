@@ -14,10 +14,14 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.ArrayList;
 
+//======================LookingForHouseActivity calls this MapsRentActivity====================
 public class MapsRentActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
     ArrayList<LatLng> receivedLatArray = new ArrayList<LatLng>();
+    ArrayList<LatLng> receivedLatList = new ArrayList<LatLng>();
+
+    private LatLng recievedLocation;
     private String MAPS_TAG="MapsRentActivity";
 
     @Override
@@ -43,24 +47,34 @@ public class MapsRentActivity extends FragmentActivity implements OnMapReadyCall
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-        receivedLatArray = getIntent().getParcelableArrayListExtra("LAT_LIST");
+        //recievedLocation = getIntent().getParcelableExtra("LATLNG");
+        receivedLatArray = getIntent().getParcelableArrayListExtra("LOCATION_LIST");
+        mMap.animateCamera( CameraUpdateFactory.zoomTo( 8.0f ) );
+
         if(receivedLatArray.isEmpty())
         {
-            Log.d("MAPS_TAG","Empty lat long list");
-            Toast.makeText(getApplicationContext(), "Empty lat long list :(", Toast.LENGTH_LONG).show();
+            Log.d("MAPS_TAG","Empty location");
+            Toast.makeText(getApplicationContext(), "Empty location list :/", Toast.LENGTH_LONG).show();
+
         }
         else
         {
-            mMap.animateCamera( CameraUpdateFactory.zoomTo( 15.0f ) );
+            //receivedLatArray.add(recievedLocation);
             int size=receivedLatArray.size();
 
+            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(receivedLatArray.get(size-1),14.0f));
             for(int i = 0 ; i < size ; i++ )
             {
                 LatLng temp_ll = receivedLatArray.get(i);
-                mMap.addMarker(new MarkerOptions().position(temp_ll).title("15k"));
-                mMap.moveCamera(CameraUpdateFactory.newLatLng(temp_ll));
+                Log.d("MAPS_TAG", String.valueOf(receivedLatArray.get(i)));
+                mMap.addMarker(new MarkerOptions().position(temp_ll).title("Tag + Budget + Address"));
+
             }
+//            mMap.addMarker(new MarkerOptions().position(recievedLocation).title("15k"));
+//            mMap.moveCamera(CameraUpdateFactory.newLatLng(recievedLocation));
         }
+
+
 
     }
 }

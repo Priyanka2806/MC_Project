@@ -31,6 +31,9 @@
 
     <string name="google_maps_key">AIzaSyBSFJKfvm-hc147RFBcqVnJLY91I347aoQ</string>
 
+    <string name="comment">Comment</string>
+    <string name="name">Name</string>
+
     <string-array name="houseType_arrays">
         <item>1-BHK</item>
         <item>2-BHK</item>
@@ -55,7 +58,61 @@
         <item>Others</item>
     </string-array>
 
+    <string-array name="tenant_budget_array">
+        <item>Upto 10K</item>
+        <item>Upto 20K</item>
+        <item>Upto 30K</item>
+        <item>Upto 40K</item>
+        <item>Above 40K</item>
+    </string-array>
+
+    <string-array name="yesno_type">
+        <item>Yes</item>
+        <item>No</item>
+        <item>Select</item>
+    </string-array>
+
+    <string-array name="furnishing_type">
+        <item>Not furnished</item>
+        <item>Semi Furnished</item>
+        <item>Fully Furnished</item>
+        <item>Select</item>
+    </string-array>
+
+    <string-array name="rate_type">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>Select</item>
+    </string-array>
+
+    <string-array name="safe_type">
+        <item>not safe</item>
+        <item>safe</item>
+        <item>Select</item>
+    </string-array>
+
+    <string-array name="maintenance_type">
+        <item>Poor</item>
+        <item>Ok</item>
+        <item>excellent</item>
+        <item>Select</item>
+    </string-array>
+    <string-array name="duration_type">
+        <item>&lt;6months</item>
+        <item>6-12months</item>
+        <item>&gt;1year</item>
+        <item>&gt;2year</item>
+        <item>Select</item>
+    </string-array>
+
     <string name="radio_immediately">Immediately</string>
     <string name="radio_from">From:</string>
     <string name="title_activity_maps_rent">Map</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
